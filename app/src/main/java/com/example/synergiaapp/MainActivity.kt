@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             val Slogin: String = inputUser.text.toString()
             val Spassword:String = inputPassword.text.toString()
 
-            if (Slogin == "aluno" && Spassword == "impacta"){
+            if (Slogin == "" && Spassword == ""){
                 Toast.makeText(
                     this, "Bem vindo, $Slogin!",
                     Toast.LENGTH_SHORT).show()
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 val intent:Intent = Intent(this, TelaInicialActivity::class.java)
                 startActivity(intent)
             }
-            else if(Slogin == "" && Spassword == ""){
+            else if(Slogin == "a" && Spassword == "a"){
                 Toast.makeText(
                     this, "Campos em branco, Informe usuário e senha!",
                     Toast.LENGTH_SHORT).show()
