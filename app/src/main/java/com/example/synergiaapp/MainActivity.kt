@@ -1,5 +1,6 @@
 package com.example.synergiaapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -17,7 +18,12 @@ class MainActivity : AppCompatActivity() {
             val Spassword:String = inputPassword.text.toString()
 
             if (Slogin == "aluno" && Spassword == "impacta"){
+                Toast.makeText(
+                    this, "Bem vindo, $Slogin!",
+                    Toast.LENGTH_SHORT).show()
 
+                val intent:Intent = Intent(this, TelaInicialActivity::class.java)
+                startActivity(intent)
             }
             else if(Slogin == "" && Spassword == ""){
                 Toast.makeText(
