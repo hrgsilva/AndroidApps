@@ -50,6 +50,6 @@ class TelaInicialActivity : AppCompatActivity() {
         else if(id == android.R.id.home){
             finish()
         }
-        return super.onOptionsItemSelected(item)
+            return super.onOptionsItemSelected(item)
     }
 }
