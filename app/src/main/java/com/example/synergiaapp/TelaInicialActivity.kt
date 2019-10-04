@@ -12,8 +12,9 @@ class TelaInicialActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
-        supportActionBar?.title = getString(R.string.curriculos)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        As linhas abaixo são responsaveis por atibuir um nome visual a
+//        supportActionBar?.title = getString(R.string.curriculos)
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

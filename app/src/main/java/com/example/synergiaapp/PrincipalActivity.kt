@@ -1,5 +1,6 @@
 package com.example.synergiaapp
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -13,6 +14,9 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.SearchView
+import android.widget.Toast
 
 class PrincipalActivity : AppCompatActivity() {
 
@@ -47,11 +51,58 @@ class PrincipalActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.principal, menu)
+        // Linha abaixo vincula o evento de busca
+        (menu?.findItem(R.id.action_buscar)?.actionView as SearchView).setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        // Linha abaixo recebe os caravteres digitados
+            override fun onQueryTextChange(newText: String): Boolean {
+
+                return false
+            }
+        // Linha abaixa pega os caracteres recebidos
+            override fun onQueryTextSubmit(query: String?): Boolean {
+            Toast.makeText(contexto, query,
+                Toast.LENGTH_LONG).show()
+                return false
+            }
+        })
         return true
     }
+    // Criada uma variavel contexto com o valor this, é uma referencia a sua classe pai, uma referencia a classe atual
+    // Essa varial foi criado por que se fizermos uma referencia a super classe usando "this" dentro de "onQueryTextSubmit"
+    // ele vai referenciar a super classe do "onCreateOptionsMenu" e não do "PrincipalActivity"
+    val contexto = this
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item?.itemId
+
+        if (id == R.id.action_buscar){
+            Toast.makeText(this, "clicou em buscar",
+                Toast.LENGTH_LONG).show()
+        }
+        else if (id == R.id.action_atualizar){
+            Toast.makeText(this,"clicou em atualizar",
+                Toast.LENGTH_LONG).show()
+        }
+        else if(id == R.id.action_add){
+            Toast.makeText(this,"clicou em adicionar",
+                Toast.LENGTH_LONG).show()
+            val intent = Intent(this, CadastroActivity::class.java)
+            startActivity(intent)
+        }
+        else if(id == R.id.action_config){
+            Toast.makeText(this, "clicou em configuração",
+                Toast.LENGTH_LONG).show()
+            val intent = Intent(this, ConfiguracaoActivity::class.java)
+            startActivity(intent)
+        }
+        else if (id == R.id.action_sair){
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
             val Slogin: String = inputUser.text.toString()
             val Spassword:String = inputPassword.text.toString()
 
-            if (Slogin == "aluno" && Spassword == "impacta"){
+            if (Slogin == "" && Spassword == ""){
                 Toast.makeText(
                     this, "Bem vindo, $Slogin!",
                     Toast.LENGTH_SHORT).show()
 
-                val intent:Intent = Intent(this, TelaInicialActivity::class.java)
+                val intent:Intent = Intent(this, PrincipalActivity::class.java)
                 startActivity(intent)
             }
             else if(Slogin == "" && Spassword == ""){
