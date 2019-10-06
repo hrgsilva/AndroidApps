@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             val Slogin: String = inputUser.text.toString()
             val Spassword:String = inputPassword.text.toString()
 
-            if (Slogin == "" && Spassword == ""){
+            if (Slogin == "aluno" && Spassword == "impacta"){
                 Toast.makeText(
                     this, "Bem vindo, $Slogin!",
                     Toast.LENGTH_SHORT).show()

@@ -15,7 +15,6 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ConfiguracaoActivity" />
         <activity android:name=".CadastroActivity" />
-        <activity android:name=".TelaInicialActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

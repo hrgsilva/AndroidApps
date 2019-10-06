@@ -30,7 +30,7 @@ class PrincipalActivity : AppCompatActivity() {
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Funcionará em breve, Synergia Sys", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -48,11 +48,13 @@ class PrincipalActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.principal, menu)
         // Linha abaixo vincula o evento de busca
-        (menu?.findItem(R.id.action_buscar)?.actionView as SearchView).setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        (menu.findItem(R.id.action_buscar)?.actionView as SearchView).setOnQueryTextListener(object : SearchView.OnQueryTextListener {
         // Linha abaixo recebe os caravteres digitados
             override fun onQueryTextChange(newText: String): Boolean {
 
@@ -67,6 +69,8 @@ class PrincipalActivity : AppCompatActivity() {
         })
         return true
     }
+
+
     // Criada uma variavel contexto com o valor this, é uma referencia a sua classe pai, uma referencia a classe atual
     // Essa varial foi criado por que se fizermos uma referencia a super classe usando "this" dentro de "onQueryTextSubmit"
     // ele vai referenciar a super classe do "onCreateOptionsMenu" e não do "PrincipalActivity"
@@ -92,12 +96,6 @@ class PrincipalActivity : AppCompatActivity() {
             Toast.makeText(this,"clicou em adicionar",
                 Toast.LENGTH_LONG).show()
             val intent = Intent(this, CadastroActivity::class.java)
-            startActivity(intent)
-        }
-        else if(id == R.id.action_config){
-            Toast.makeText(this, "clicou em configuração",
-                Toast.LENGTH_LONG).show()
-            val intent = Intent(this, ConfiguracaoActivity::class.java)
             startActivity(intent)
         }
         else if (id == R.id.action_sair){

@@ -18,10 +18,6 @@
         app:showAsAction="ifRoom"
         />
     <item
-        android:id="@+id/action_config"
-        android:title="@string/configurações"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/action_sair"
         android:title="@string/sair"
         app:showAsAction="never"/>
